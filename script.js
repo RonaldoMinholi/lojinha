@@ -4,6 +4,10 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const money = (v) =>
   new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(v);
 
+// ===== SEU NÚMERO DE WHATSAPP (E.164) =====
+// Ex.: 5511912345678 (Brasil 55 + DDD 11 + número)
+const VENDOR_PHONE = '610405879620';
+
 // ===== menu hambúrguer =====
 const menuToggle = document.getElementById('menuToggle');
 const mainMenu = document.getElementById('mainMenu');
@@ -187,14 +191,19 @@ function updateCartUI() {
     });
   }
 
-  // link do WhatsApp
+  // ===== WhatsApp (formato desejado + conversa com seu número) =====
   if (els.checkoutBtn) {
     const lines = CART.map(
-      (it) => `• ${it.name} x${it.qty} — ${money(it.qty * it.price)}`
+      (it) => `• ${it.qty} x ${it.name} — ${money(it.qty * it.price)}`
     );
-    const msg =
-      `Olá! Quero finalizar minha compra:%0A%0A${lines.join('%0A')}%0A%0ATotal: ${money(totalPrice)}`;
-    els.checkoutBtn.href = `https://wa.me/?text=${msg}`;
+    const plainMsg =
+`Olá! Quero finalizar minha compra:
+
+${lines.join('\n')}
+
+Total: ${money(totalPrice)}`;
+    const encoded = encodeURIComponent(plainMsg);
+    els.checkoutBtn.href = `https://wa.me/${VENDOR_PHONE}?text=${encoded}`;
   }
 }
 
