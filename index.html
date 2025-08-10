@@ -1,91 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Minha Loja</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Loja da Dina</title>
+  <meta name="description" content="Acessórios e necessaires da Loja da Dina" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
-  <header class="header container">
-    <div class="brand">
-      <img src="logo.png" alt="Minha Loja" class="logo" />
+  <!-- HEADER -->
+  <header class="container header">
+    <!-- ESQUERDA: hambúrguer -->
+    <nav class="nav-left">
+      <button id="menuToggle" class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- DROPDOWN -->
+      <ul class="menu" id="mainMenu" role="menu">
+        <li role="none"><a role="menuitem" href="#cat-necessaires">Necessaires</a></li>
+        <li role="none"><a role="menuitem" href="#cat-bolsas">Bolsas</a></li>
+        <li role="none"><a role="menuitem" href="#cat-acessorios">Acessórios</a></li>
+        <li role="none"><a role="menuitem" href="#cat-presentes">Presentes</a></li>
+        <!-- Login no menu (visível no mobile; escondido no desktop via CSS) -->
+        <li role="none" class="login"><a role="menuitem" href="#login">Entrar / Registrar</a></li>
+      </ul>
+    </nav>
+
+    <!-- CENTRO: logo -->
+    <div class="brand center">
+      <img src="assets/logo.png" alt="Logo Loja da Dina" class="logo logo--header" />
     </div>
 
-    <!-- Busca (exemplo) -->
-    <div class="search-wrap">
-      <input type="search" placeholder="Buscar produtos..." aria-label="Buscar" />
-    </div>
+    <!-- DIREITA: linha de topo (login + carrinho) e busca abaixo -->
+    <nav class="actions">
+      <div class="top-row">
+        <a href="#login" class="auth-link">Entrar / Registrar</a>
+        <button id="cartBtn" class="icon-btn" aria-label="Abrir carrinho">
+          🛒 <span id="cartCount">0</span>
+        </button>
+      </div>
 
-    <!-- Botão do carrinho -->
-    <button id="cartBtn" class="cart-btn" aria-label="Abrir carrinho" title="Carrinho">
-      <!-- Ícone (pode trocar o SVG livremente) -->
-      <svg class="cart-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <path d="M6 6h15l-1.5 9h-12z"></path>
-        <path d="M6 6l-1-3H2"></path>
-        <circle cx="9" cy="20" r="1.75"></circle>
-        <circle cx="18" cy="20" r="1.75"></circle>
-      </svg>
-      <span id="cartBadge" class="cart-badge" hidden>0</span>
-    </button>
+      <div class="search-row">
+        <input id="search" class="search-desktop" type="search" placeholder="Buscar produtos..." aria-label="Buscar produtos" />
+      </div>
+
+      <!-- Ícones só no mobile -->
+      <div class="mobile-icons">
+        <button id="searchOpen" class="icon-btn" aria-label="Abrir busca">🔍</button>
+        <button id="cartBtnMobile" class="icon-btn" aria-label="Abrir carrinho">
+          🛒 <span id="cartCountMobile">0</span>
+        </button>
+      </div>
+    </nav>
   </header>
 
-  <!-- ===== PRODUTOS (exemplo simples) ===== -->
+  <!-- OVERLAY DE BUSCA (mobile) -->
+  <div id="searchOverlay" class="search-overlay" hidden>
+    <div class="search-modal">
+      <input id="searchMobile" type="search" placeholder="Buscar produtos..." aria-label="Buscar produtos" autofocus />
+      <button id="searchClose" class="close-btn" aria-label="Fechar">✖</button>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO -->
   <main class="container">
-    <section class="products">
-      <article class="product">
-        <h3>Necessaire Colorida Laço</h3>
-        <p class="price">R$ 35,90</p>
-        <button class="add-to-cart"
-                data-id="nec-colorida-laco"
-                data-name="Necessaire Colorida Laço"
-                data-price="35.90">Adicionar ao carrinho</button>
-      </article>
-
-      <article class="product">
-        <h3>Estojo Floral</h3>
-        <p class="price">R$ 29,90</p>
-        <button class="add-to-cart"
-                data-id="estojo-floral"
-                data-name="Estojo Floral"
-                data-price="29.90">Adicionar ao carrinho</button>
-      </article>
-
-      <article class="product">
-        <h3>Bolsa Petite</h3>
-        <p class="price">R$ 59,90</p>
-        <button class="add-to-cart"
-                data-id="bolsa-petite"
-                data-name="Bolsa Petite"
-                data-price="59.90">Adicionar ao carrinho</button>
-      </article>
+    <section id="hero" class="hero">
+      <div class="hero-card">
+        <h1>Acessórios que combinam com você ✨</h1>
+        <p>Necessaires com cores suaves e design atual. Compre com segurança e receba em casa.</p>
+        <a class="primary" href="#products">Ver produtos</a>
+      </div>
     </section>
+
+    <section id="products" class="grid" aria-live="polite"></section>
   </main>
 
-  <!-- ===== OVERLAY + MINI-CART ===== -->
-  <div id="cartOverlay" class="cart-overlay" hidden></div>
-
-  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
-    <header class="cart-drawer__header">
+  <!-- CARRINHO -->
+  <dialog id="cartModal">
+    <div class="cart-header">
       <h2>Seu carrinho</h2>
-      <button id="closeCart" class="close-cart" aria-label="Fechar carrinho">×</button>
-    </header>
-
-    <div id="cartItems" class="cart-items">
-      <!-- itens via JS -->
+      <button id="closeCart" aria-label="Fechar">✖</button>
     </div>
-
-    <footer class="cart-drawer__footer">
-      <div class="cart-total">
-        <span>Total</span>
-        <strong id="cartTotal">R$ 0,00</strong>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="totals">
+        <span>Itens: <strong id="cartItemsCount">0</strong></span>
+        <span>Total: <strong id="cartTotal">R$ 0,00</strong></span>
       </div>
-      <button id="checkoutBtn" class="checkout-btn">Finalizar compra</button>
-      <small class="cart-note">Ao finalizar, abriremos seu WhatsApp com o pedido pronto.</small>
-    </footer>
-  </aside>
+      <div class="cart-actions">
+        <button id="clearCart" class="secondary">Limpar</button>
+        <a id="checkoutBtn" class="primary" href="#" target="_blank" rel="noopener">Finalizar no WhatsApp</a>
+      </div>
+    </div>
+  </dialog>
 
-  <script src="script.js"></script>
+  <footer class="container footer">
+    <small>© <span id="year"></span> Loja da Dina • Feito com carinho</small>
+  </footer>
+
+  <script src="script.js?v=9"></script>
 </body>
 </html>
