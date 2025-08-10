@@ -6,7 +6,7 @@
   <title>Loja da Dina</title>
   <meta name="description" content="Acessórios e necessaires da Loja da Dina" />
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
         <li role="none"><a role="menuitem" href="#cat-bolsas">Bolsas</a></li>
         <li role="none"><a role="menuitem" href="#cat-acessorios">Acessórios</a></li>
         <li role="none"><a role="menuitem" href="#cat-presentes">Presentes</a></li>
-        <!-- No mobile o login fica aqui -->
+        <!-- Login no menu (fica só no mobile via CSS) -->
         <li role="none" class="login"><a role="menuitem" href="#login">Entrar / Registrar</a></li>
       </ul>
     </nav>
@@ -36,17 +36,18 @@
       <img src="assets/logo.png" alt="Logo Loja da Dina" class="logo logo--header" />
     </div>
 
-    <!-- DIREITA: (desktop) link acima da busca + busca; (mobile) ícones -->
+    <!-- DIREITA: login (acima) + busca (desktop) + ícones -->
     <nav class="actions">
-      <!-- Desktop: aparece; Mobile: escondido (fica no menu) -->
       <a href="#login" class="auth-link">Entrar / Registrar</a>
 
-      <!-- Desktop: input visível / Mobile: escondido -->
-      <input id="search" class="search-desktop" type="search" placeholder="Buscar produtos..." aria-label="Buscar produtos" />
+      <!-- Desktop: visível | Mobile: escondido -->
+      <div class="search-row">
+        <input id="search" class="search-desktop" type="search" placeholder="Buscar produtos..." aria-label="Buscar produtos" />
+        <button id="cartBtn" class="icon-btn" aria-label="Abrir carrinho">🛒 <span id="cartCount">0</span></button>
+      </div>
 
-      <!-- Ícones (aparecem sempre) -->
-      <button id="searchOpen" class="icon-btn" aria-label="Abrir busca">🔍</button>
-      <button id="cartBtn" class="icon-btn" aria-label="Abrir carrinho">🛒 <span id="cartCount">0</span></button>
+      <!-- Lupa (somente mobile) -->
+      <button id="searchOpen" class="icon-btn search-icon" aria-label="Abrir busca">🔍</button>
     </nav>
   </header>
 
@@ -94,6 +95,6 @@
     <small>© <span id="year"></span> Loja da Dina • Feito com carinho</small>
   </footer>
 
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>
