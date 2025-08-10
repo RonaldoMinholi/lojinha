@@ -99,7 +99,7 @@ document.addEventListener("click",(ev)=>{
 document.getElementById("search").addEventListener("input", filterProducts);
 load();
 
-/* === Toggle do menu hambúrguer (sempre dropdown) === */
+/* === Toggle do menu hambúrguer (dropdown) === */
 (() => {
   const btn = document.getElementById('menuToggle');
   const menu = document.getElementById('mainMenu');
@@ -108,7 +108,7 @@ load();
     const opened = menu.classList.toggle('open');
     btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
   });
-  // fecha ao clicar em link
+  // fecha quando clicar em qualquer link
   menu.addEventListener('click', (e) => {
     if (e.target.tagName === 'A') {
       menu.classList.remove('open');

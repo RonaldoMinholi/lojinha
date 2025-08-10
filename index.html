@@ -6,20 +6,21 @@
   <title>Loja da Dina</title>
   <meta name="description" content="Acessórios e necessaires da Loja da Dina" />
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- HEADER -->
   <header class="container header">
-    <!-- ESQUERDA: hambúrguer (menu fica escondido por padrão) -->
+    <!-- ESQUERDA: hambúrguer -->
     <nav class="nav-left">
       <button id="menuToggle" class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainMenu">
         <span></span><span></span><span></span>
       </button>
 
-      <!-- DROPDOWN DO MENU (invisível até clicar no hambúrguer) -->
+      <!-- DROPDOWN: escondido até clicar -->
       <ul class="menu" id="mainMenu" role="menu">
         <li role="none"><a role="menuitem" href="#cat-necessaires">Necessaires</a></li>
         <li role="none"><a role="menuitem" href="#cat-bolsas">Bolsas</a></li>
@@ -31,7 +32,7 @@
 
     <!-- CENTRO: logo -->
     <div class="brand center">
-      <img src="assets/logo-final.png" alt="Logo Loja da Dina" class="logo logo--header" />
+      <img src="assets/logo.png" alt="Logo Loja da Dina" class="logo logo--header" />
     </div>
 
     <!-- DIREITA: busca + carrinho -->
@@ -41,6 +42,7 @@
     </nav>
   </header>
 
+  <!-- CONTEÚDO -->
   <main class="container">
     <section id="hero" class="hero">
       <div class="hero-card">
@@ -53,6 +55,7 @@
     <section id="products" class="grid" aria-live="polite"></section>
   </main>
 
+  <!-- CARRINHO -->
   <dialog id="cartModal">
     <div class="cart-header">
       <h2>Seu carrinho</h2>
@@ -75,6 +78,6 @@
     <small>© <span id="year"></span> Loja da Dina • Feito com carinho</small>
   </footer>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>

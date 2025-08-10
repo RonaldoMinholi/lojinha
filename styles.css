@@ -14,40 +14,45 @@ html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe U
 
 .container{max-width:1100px;margin:0 auto;padding:16px}
 
-/* ===== HEADER: 3 colunas ===== */
+/* ===== HEADER (logo central real, ações à direita) ===== */
 .header{
-  display:grid;
-  grid-template-columns: 1fr auto 1fr; /* esquerda | centro | direita */
+  position:relative;
+  display:flex;
   align-items:center;
-  gap:12px;
+  justify-content:space-between;     /* empurra esquerda e direita para as bordas */
+  padding:12px 24px;                 /* respiro lateral */
+  min-height:96px;
 }
-.center{ justify-self:center; }
+.brand.center{
+  position:absolute;                 /* centraliza o logo independente das laterais */
+  left:50%;
+  transform:translateX(-50%);
+  top:12px;
+}
 .brand { display:flex; align-items:center; }
 
-/* Logo geral (para páginas/hero) */
-.logo { height:500px !important; width:auto !important; max-height:none !important; }
+/* Logo geral (hero etc.) */
+.logo{ height:500px !important; width:auto !important; max-height:none !important; }
 /* Logo no header (menor) */
-.logo--header{ height:160px !important; max-height:18vh !important; }
+.logo--header{ height:120px !important; max-height:18vh !important; }
+
 @media (max-width:640px){
   .logo{ height:200px !important; }
-  .logo--header{ height:100px !important; }
+  .logo--header{ height:84px !important; }
 }
 
-/* ===== ESQUERDA: hambúrguer + menu dropdown ===== */
-.nav-left{ position:relative; display:flex; align-items:center; }
-
-/* Ícone hambúrguer */
+/* ===== ESQUERDA: hambúrguer + menu ===== */
+.nav-left{ position:relative; z-index:2; }
 .hamburger{ width:36px; height:28px; background:transparent; border:0; padding:0; display:grid; gap:6px; cursor:pointer; }
 .hamburger span{ display:block; height:2px; background:#232529; border-radius:2px; }
 
-/* Menu fica SEMPRE escondido até clicar */
+/* dropdown escondido até clicar */
 .menu{
   display:none;
   position:absolute; top:44px; left:0;
   background:#fff; border:1px solid var(--stroke); border-radius:12px;
   padding:10px; list-style:none; margin:0;
   min-width:190px; box-shadow:0 10px 30px rgba(0,0,0,.08);
-  z-index:10; 
 }
 .menu.open{ display:flex; flex-direction:column; gap:8px; }
 .menu a{ text-decoration:none; color:var(--text); font-weight:600; opacity:.95; }
@@ -55,8 +60,11 @@ html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe U
 .menu .login a{ padding:8px 12px; border:1px solid var(--stroke); border-radius:10px; }
 
 /* ===== DIREITA: busca + carrinho ===== */
-.actions{display:flex;align-items:center;gap:10px}
-input[type=search]{background:#fff;border:1px solid var(--stroke);color:var(--text);padding:10px 12px;border-radius:12px;min-width:240px;outline:none;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+.actions{
+  display:flex; align-items:center; gap:14px;
+  margin-left:auto;                   /* garante que vá para a direita */
+}
+input[type=search]{background:#fff;border:1px solid var(--stroke);color:var(--text);padding:10px 12px;border-radius:12px;min-width:280px;outline:none;box-shadow:0 1px 0 rgba(0,0,0,.02)}
 input[type=search]::placeholder{color:#9aa4b2}
 button,a.button,.primary{border:0;border-radius:12px;padding:10px 14px;background:var(--primary);color:var(--primary-contrast);font-weight:700;cursor:pointer;transition:transform .05s ease,opacity .15s ease;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
 button:active,.primary:active{transform:translateY(1px)}
