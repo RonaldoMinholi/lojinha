@@ -98,3 +98,15 @@ document.addEventListener("click",(ev)=>{
 });
 document.getElementById("search").addEventListener("input", filterProducts);
 load();
+
+/* ====== toggle do menu hambúrguer ====== */
+(() => {
+  const btn = document.getElementById('menuToggle');
+  const menu = document.getElementById('mainMenu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      const opened = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    });
+  }
+})();

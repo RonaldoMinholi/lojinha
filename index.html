@@ -4,24 +4,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Loja da Dina</title>
+  <meta name="description" content="Acessórios e necessaires da Loja da Dina" />
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=2" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <meta name="description" content="Acessórios e necessaires da Loja da Dina" />
 </head>
 <body>
   <header class="container header">
-    <div class="brand">
-      <!-- Logo atualizado -->
-      <img src="assets/logo-2025.png?v=1" alt="Logo Loja da Dina" class="logo" />
+    <!-- ESQUERDA: hambúrguer + categorias + login -->
+    <nav class="nav-left">
+      <button id="menuToggle" class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="menu" id="mainMenu">
+        <li><a href="#cat-necessaires">Necessaires</a></li>
+        <li><a href="#cat-bolsas">Bolsas</a></li>
+        <li><a href="#cat-acessorios">Acessórios</a></li>
+        <li><a href="#cat-presentes">Presentes</a></li>
+        <li class="login"><a href="#login">Entrar</a></li>
+      </ul>
+    </nav>
+
+    <!-- CENTRO: logo -->
+    <div class="brand center">
+      <!-- use o arquivo que você subiu; troque para logo.png se preferir -->
+      <img src="assets/logo-final.png" alt="Logo Loja da Dina" class="logo logo--header" />
     </div>
+
+    <!-- DIREITA: busca + carrinho -->
     <nav class="actions">
       <input id="search" type="search" placeholder="Buscar produtos..." aria-label="Buscar produtos" />
-      <button id="cartBtn" aria-label="Abrir carrinho">
-        🛒 <span id="cartCount">0</span>
-      </button>
+      <button id="cartBtn" aria-label="Abrir carrinho">🛒 <span id="cartCount">0</span></button>
     </nav>
   </header>
 
@@ -59,6 +74,6 @@
     <small>© <span id="year"></span> Loja da Dina • Feito com carinho</small>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>
