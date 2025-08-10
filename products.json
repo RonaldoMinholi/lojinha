@@ -1,0 +1,16 @@
+[
+  {
+    "id": "necessaire-preta-branca",
+    "name": "Necessaire Preta e Branca",
+    "price": 29.9,
+    "image": "https://images.unsplash.com/photo-1600962815703-50b6b6d31a57?q=80&w=800&auto=format&fit=crop",
+    "description": "Clássica, combina com tudo. Tecido resistente e zíper metálico."
+  },
+  {
+    "id": "necessaire-colorida",
+    "name": "Necessaire Colorida",
+    "price": 19.9,
+    "image": "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?q=80&w=800&auto=format&fit=crop",
+    "description": "Cores vibrantes e alegres, perfeita para presentear."
+  }
+]
