@@ -21,7 +21,7 @@ html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe U
   align-items:center;
   justify-content:space-between;
   padding:10px 16px;
-  min-height:84px;
+  min-height:180px; /* ↑ aumentei para comportar a logo maior */
 }
 .brand.center{
   position:absolute;
@@ -31,13 +31,17 @@ html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe U
 }
 .brand { display:flex; align-items:center; }
 
-/* Logo */
-.logo{ height:650px !important; width:auto !important; max-height:none !important; }
-.logo--header{ height:110px !important; max-height:18vh !important; }
-
+/* ===== LOGO (ajustado) ===== */
+.logo.logo--header{
+  height:180px !important; /* ↑ tamanho desejado */
+  width:auto !important;
+  max-height:none !important;
+}
 @media (max-width:640px){
-  .logo{ height:300px !important; }
-  .logo--header{ height:64px !important; }
+  .logo.logo--header{
+    height:100px !important; /* versão menor para mobile */
+    width:auto !important;
+  }
 }
 
 /* ===== NAV LEFT ===== */
@@ -110,7 +114,7 @@ html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe U
   .search-row{ display:none; }       /* sem input fixo no mobile */
   .mobile-icons{ display:flex; }     /* mostra ícones */
   .auth-link{ display:none; }        /* login fica no menu */
-  .header{ padding:10px 12px; min-height:72px; }
+  .header{ padding:10px 12px; min-height:100px; } /* ajustado para mobile */
   .hamburger{ width:28px; height:20px; gap:4px; }
   .menu a{ font-size:.95rem; }
 }
