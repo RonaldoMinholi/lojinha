@@ -71,7 +71,11 @@ button:active,.primary:active{transform:translateY(1px)}
 button.secondary{background:#E9ECFF;color:#3a3f58;border:1px solid #dfe4ff}
 
 /* ===== HERO, GRID, CARDS ===== */
-.hero{margin:8px 0 24px;display:grid;grid-template-columns:1fr}
+.hero{
+  margin:48px 0 24px; /* ALTERADO de 8px para 48px para descer a barra */
+  display:grid;
+  grid-template-columns:1fr;
+}
 .hero-card{background:linear-gradient(135deg,var(--muted),#fff 60%);border:1px solid var(--stroke);border-radius:20px;padding:22px;box-shadow:0 10px 30px rgba(139,122,247,.08)}
 .hero-card h1{margin:0 0 6px 0;font-size:26px}
 .hero-card p{margin:0 0 12px 0;color:var(--text-dim)}
