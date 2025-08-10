@@ -13,7 +13,8 @@
 .container{max-width:1100px;margin:0 auto;padding:16px}
 .header{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .logo {
-  max-height: 120px; /* aumenta a altura */
+  display: block;
+  max-height: 180px;   /* ou o tamanho que quiser */
   height: auto;
   width: auto;
 }
@@ -51,3 +52,7 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
 .totals{display:flex;flex-direction:column;gap:4px}
 @media(min-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(min-width:960px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width: 640px) {
+  .logo { max-height: 120px; }
+}
+.brand { display:flex; align-items:center; }
