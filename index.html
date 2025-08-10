@@ -6,7 +6,7 @@
   <title>Loja da Dina</title>
   <meta name="description" content="Acessórios e necessaires da Loja da Dina" />
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -26,7 +26,8 @@
         <li role="none"><a role="menuitem" href="#cat-bolsas">Bolsas</a></li>
         <li role="none"><a role="menuitem" href="#cat-acessorios">Acessórios</a></li>
         <li role="none"><a role="menuitem" href="#cat-presentes">Presentes</a></li>
-        <li role="none" class="login"><a role="menuitem" href="#login">Entrar</a></li>
+        <!-- Este login fica só no mobile -->
+        <li role="none" class="login"><a role="menuitem" href="#login">Entrar / Registrar</a></li>
       </ul>
     </nav>
 
@@ -35,8 +36,9 @@
       <img src="assets/logo.png" alt="Logo Loja da Dina" class="logo logo--header" />
     </div>
 
-    <!-- DIREITA: busca + carrinho -->
+    <!-- DIREITA: login + busca + carrinho -->
     <nav class="actions">
+      <a href="#login" class="auth-link">Entrar / Registrar</a>
       <input id="search" type="search" placeholder="Buscar produtos..." aria-label="Buscar produtos" />
       <button id="cartBtn" aria-label="Abrir carrinho">🛒 <span id="cartCount">0</span></button>
     </nav>
@@ -78,6 +80,6 @@
     <small>© <span id="year"></span> Loja da Dina • Feito com carinho</small>
   </footer>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

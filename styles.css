@@ -57,13 +57,34 @@ html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe U
 .menu.open{ display:flex; flex-direction:column; gap:8px; }
 .menu a{ text-decoration:none; color:var(--text); font-weight:600; opacity:.95; }
 .menu a:hover{ opacity:1; }
+/* Login no menu — será escondido no desktop */
 .menu .login a{ padding:8px 12px; border:1px solid var(--stroke); border-radius:10px; }
 
-/* ===== DIREITA: busca + carrinho ===== */
-.actions{
-  display:flex; align-items:center; gap:14px;
-  margin-left:auto;                   /* garante que vá para a direita */
+/* Esconde o login do menu no desktop e mantém só o do header */
+@media (min-width:640px){
+  .menu .login{ display:none; }
 }
+
+/* ===== DIREITA: busca + carrinho + login ===== */
+.actions{
+  display:flex; 
+  align-items:center; 
+  gap:18px;                 /* um pouco mais de espaço */
+  margin-left:auto;         /* garante que vá para a direita */
+}
+.auth-link{
+  text-decoration:none;
+  color:var(--text);
+  font-weight:600;
+  opacity:.9;
+  padding:0;
+  border:0;
+}
+.auth-link:hover{ 
+  opacity:1; 
+  text-decoration:underline; 
+}
+
 input[type=search]{background:#fff;border:1px solid var(--stroke);color:var(--text);padding:10px 12px;border-radius:12px;min-width:280px;outline:none;box-shadow:0 1px 0 rgba(0,0,0,.02)}
 input[type=search]::placeholder{color:#9aa4b2}
 button,a.button,.primary{border:0;border-radius:12px;padding:10px 14px;background:var(--primary);color:var(--primary-contrast);font-weight:700;cursor:pointer;transition:transform .05s ease,opacity .15s ease;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
