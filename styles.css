@@ -13,11 +13,11 @@
 .container{max-width:1100px;margin:0 auto;padding:16px}
 .header{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .logo {
-  display: block;
-  max-height: 180px;   /* ou o tamanho que quiser */
-  height: auto;
-  width: auto;
+  height: 200px !important;
+  width: auto !important;
+  max-height: none !important;
 }
+
 
 .actions{display:flex;align-items:center;gap:10px}
 input[type=search]{background:#fff;border:1px solid var(--stroke);color:var(--text);padding:10px 12px;border-radius:12px;min-width:240px;outline:none;box-shadow:0 1px 0 rgba(0,0,0,.02)}
