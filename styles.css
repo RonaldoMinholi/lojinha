@@ -33,7 +33,7 @@ html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe U
 
 /* ===== LOGO (ajustado) ===== */
 .logo.logo--header{
-  height:180px !important; /* ↑ tamanho desejado */
+  height:160px !important; /* ↑ tamanho desejado */
   width:auto !important;
   max-height:none !important;
 }
