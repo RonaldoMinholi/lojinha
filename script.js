@@ -36,8 +36,8 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && searchOverlay && !searchOverlay.hidden) closeSearch();
 });
 
-// --------- PRODUTOS (carregar e renderizar) ---------
-const PRODUCTS_JSON_URL = './products.json'; // deixe o arquivo na raiz do projeto
+// --------- PRODUTOS ---------
+const PRODUCTS_JSON_URL = './products.json'; // deixe o products.json na raiz
 
 const money = (v) =>
   new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(v);
@@ -47,17 +47,20 @@ let CART = [];
 
 const els = {
   grid: document.getElementById('products'),
-  cartBtn: document.getElementById('cartBtn'),
   cartModal: document.getElementById('cartModal'),
   closeCart: document.getElementById('closeCart'),
   cartItems: document.getElementById('cartItems'),
-  cartCount: document.getElementById('cartCount'),
   cartItemsCount: document.getElementById('cartItemsCount'),
   cartTotal: document.getElementById('cartTotal'),
   clearCart: document.getElementById('clearCart'),
   checkoutBtn: document.getElementById('checkoutBtn'),
   searchDesktop: document.getElementById('search'),
   searchMobile: document.getElementById('searchMobile'),
+  // botões/contadores de carrinho: desktop + mobile
+  cartBtn: document.getElementById('cartBtn'),
+  cartBtnMobile: document.getElementById('cartBtnMobile'),
+  cartCount: document.getElementById('cartCount'),
+  cartCountMobile: document.getElementById('cartCountMobile'),
 };
 
 async function loadProducts() {
@@ -97,7 +100,7 @@ function renderProducts(list) {
     return;
   }
   els.grid.innerHTML = list.map(productCard).join('');
-  // Binds
+  // binds
   els.grid.querySelectorAll('[data-add]').forEach(btn => {
     btn.addEventListener('click', () => addToCart(btn.getAttribute('data-add')));
   });
@@ -127,6 +130,7 @@ function updateCartUI() {
   const totalPrice = CART.reduce((s, it) => s + it.qty * it.price, 0);
 
   if (els.cartCount) els.cartCount.textContent = String(totalItems);
+  if (els.cartCountMobile) els.cartCountMobile.textContent = String(totalItems);
   if (els.cartItemsCount) els.cartItemsCount.textContent = String(totalItems);
   if (els.cartTotal) els.cartTotal.textContent = money(totalPrice);
 
@@ -163,25 +167,7 @@ function updateCartUI() {
   }
 }
 
-// binds carrinho
+// binds carrinho (desktop e mobile)
 els.cartBtn && els.cartBtn.addEventListener('click', () => els.cartModal && els.cartModal.showModal());
-els.closeCart && els.closeCart.addEventListener('click', () => els.cartModal && els.cartModal.close());
-els.clearCart && els.clearCart.addEventListener('click', () => { CART = []; updateCartUI(); });
-
-// Busca (filtrar na grade quando digitar)
-function hookSearch(inputEl) {
-  if (!inputEl) return;
-  inputEl.addEventListener('input', (e) => {
-    const q = String(e.target.value || '').toLowerCase();
-    const filtered = PRODUCTS.filter(p =>
-      p.name.toLowerCase().includes(q) ||
-      (p.description || '').toLowerCase().includes(q)
-    );
-    renderProducts(filtered);
-  });
-}
-hookSearch(els.searchDesktop);
-hookSearch(els.searchMobile);
-
-// init
-loadProducts();
+els.cartBtnMobile && els.cartBtnMobile.addEventListener('click', () => els.cartModal && els.cartModal.showModal());
+els.closeCart && els.closeCart.addEventListe

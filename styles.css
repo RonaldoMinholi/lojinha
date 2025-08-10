@@ -66,11 +66,16 @@ html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe U
 /* ===== AÇÕES (direita) ===== */
 .actions{
   display:flex;
-  flex-direction:column;      /* link em cima, busca embaixo (desktop) */
+  flex-direction:column;      /* top-row em cima; busca abaixo */
   align-items:flex-end;
-  gap:6px;
+  gap:8px;
   margin-left:auto;
 }
+
+/* Linha superior: login + carrinho alinhados à direita */
+.top-row{ display:flex; align-items:center; gap:12px; }
+
+/* Link de login/registro */
 .auth-link{
   text-decoration:none;
   color:var(--text);
@@ -81,10 +86,8 @@ html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe U
 }
 .auth-link:hover{ opacity:1; text-decoration:underline; }
 
-.search-row{
-  display:flex; align-items:center; gap:12px;
-}
-
+/* Barra de busca abaixo da top-row */
+.search-row{ display:flex; width:100%; justify-content:flex-end; }
 .search-desktop{
   background:#fff;border:1px solid var(--stroke);color:var(--text);
   padding:10px 12px;border-radius:12px;min-width:280px;outline:none;box-shadow:0 1px 0 rgba(0,0,0,.02)
@@ -97,15 +100,16 @@ html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe U
   font-size:18px; line-height:1; cursor:pointer;
 }
 
-/* Lupa some no desktop */
-.search-icon{ display:none; }
+/* Ícones mobile (ocultos no desktop) */
+.mobile-icons{ display:none; gap:8px; }
 
 /* ===== MOBILE ===== */
 @media (max-width:640px){
   .actions{ flex-direction:row; align-items:center; gap:8px; }
-  .auth-link{ display:none; }          /* no mobile aparece no menu */
-  .search-desktop{ display:none; }     /* sem input fixo no mobile */
-  .search-icon{ display:inline-flex; } /* lupa só no mobile */
+  .top-row{ display:none; }          /* esconde login + carrinho desktop */
+  .search-row{ display:none; }       /* sem input fixo no mobile */
+  .mobile-icons{ display:flex; }     /* mostra ícones */
+  .auth-link{ display:none; }        /* login fica no menu */
   .header{ padding:10px 12px; min-height:72px; }
   .hamburger{ width:28px; height:20px; gap:4px; }
   .menu a{ font-size:.95rem; }
