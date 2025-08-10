@@ -4,20 +4,20 @@
     "name": "Necessaire Rosé",
     "price": 19.90,
     "description": "Compacta, delicada e resistente. Zíper metálico dourado.",
-    "image": "assets/necessaire-rose.png"
+    "image": "assets/ChatGPT Image 10 de ago. de 2025, 11_11_55.png"
   },
   {
     "id": "nec-colorida",
     "name": "Necessaire Colorida Laço",
     "price": 29.90,
     "description": "Combinação candy color com laço frontal. Perfeita para presentear.",
-    "image": "assets/necessaire-colorida.png"
+    "image": "assets/ChatGPT Image 10 de ago. de 2025, 11_53_00.png"
   },
   {
     "id": "nec-preta",
     "name": "Necessaire Preta",
     "price": 35.90,
     "description": "Clássica e elegante. Acabamento premium e bolso interno.",
-    "image": "assets/necessaire-preta.png"
+    "image": "assets/ChatGPT Image 10 de ago. de 2025, 11_53_04.png"
   }
 ]
