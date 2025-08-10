@@ -99,14 +99,20 @@ document.addEventListener("click",(ev)=>{
 document.getElementById("search").addEventListener("input", filterProducts);
 load();
 
-/* ====== toggle do menu hambúrguer ====== */
+/* === Toggle do menu hambúrguer (sempre dropdown) === */
 (() => {
   const btn = document.getElementById('menuToggle');
   const menu = document.getElementById('mainMenu');
-  if (btn && menu) {
-    btn.addEventListener('click', () => {
-      const opened = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
-    });
-  }
+  if (!btn || !menu) return;
+  btn.addEventListener('click', () => {
+    const opened = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+  });
+  // fecha ao clicar em link
+  menu.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+    }
+  });
 })();
