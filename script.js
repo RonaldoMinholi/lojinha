@@ -6,7 +6,7 @@ const money = (v) =>
 
 // ===== SEU NÚMERO DE WHATSAPP (E.164) =====
 // Ex.: 5511912345678 (Brasil 55 + DDD 11 + número)
-const VENDOR_PHONE = '610405879620';
+const VENDOR_PHONE = '5551993520729';
 
 // ===== menu hambúrguer =====
 const menuToggle = document.getElementById('menuToggle');
