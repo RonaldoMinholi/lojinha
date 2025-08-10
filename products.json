@@ -7,17 +7,17 @@
     "image": "assets/rose.png"
   },
   {
-    "id": "nec-colorida",
-    "name": "Necessaire Colorida Laço",
-    "price": 29.90,
-    "description": "Combinação candy color com laço frontal. Perfeita para presentear.",
-    "image": "assets/laco.png"
-  },
-  {
     "id": "nec-preta",
     "name": "Necessaire Preta",
-    "price": 35.90,
+    "price": 29.90,
     "description": "Clássica e elegante. Acabamento premium e bolso interno.",
     "image": "assets/preta.png"
+  },
+  {
+    "id": "nec-colorida",
+    "name": "Necessaire Colorida Laço",
+    "price": 35.90,
+    "description": "Combinação candy color com laço frontal. Perfeita para presentear.",
+    "image": "assets/laco.png"
   }
 ]
