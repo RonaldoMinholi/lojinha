@@ -19,12 +19,12 @@ html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe U
   position:relative;
   display:flex;
   align-items:center;
-  justify-content:space-between;     /* empurra esquerda e direita para as bordas */
-  padding:12px 24px;                 /* respiro lateral */
+  justify-content:space-between;
+  padding:12px 24px;
   min-height:96px;
 }
 .brand.center{
-  position:absolute;                 /* centraliza o logo independente das laterais */
+  position:absolute;
   left:50%;
   transform:translateX(-50%);
   top:12px;
@@ -57,32 +57,42 @@ html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe U
 .menu.open{ display:flex; flex-direction:column; gap:8px; }
 .menu a{ text-decoration:none; color:var(--text); font-weight:600; opacity:.95; }
 .menu a:hover{ opacity:1; }
-/* Login no menu — será escondido no desktop */
+/* Login no menu — escondido no desktop */
 .menu .login a{ padding:8px 12px; border:1px solid var(--stroke); border-radius:10px; }
 
-/* Esconde o login do menu no desktop e mantém só o do header */
 @media (min-width:640px){
   .menu .login{ display:none; }
 }
 
-/* ===== DIREITA: busca + carrinho + login ===== */
+/* ===== DIREITA: login acima da busca + busca + carrinho ===== */
 .actions{
-  display:flex; 
-  align-items:center; 
-  gap:18px;                 /* um pouco mais de espaço */
-  margin-left:auto;         /* garante que vá para a direita */
+  display:flex;
+  flex-direction:column;      /* coloca o link acima da barra de busca */
+  align-items:flex-end;       /* alinha à direita */
+  gap:8px;                    /* espaço entre link e linha de busca */
+  margin-left:auto;
 }
+
 .auth-link{
   text-decoration:none;
   color:var(--text);
   font-weight:600;
+  font-size:.875rem;          /* menorzinho: 14px aprox */
+  line-height:1;
   opacity:.9;
   padding:0;
   border:0;
 }
-.auth-link:hover{ 
-  opacity:1; 
-  text-decoration:underline; 
+.auth-link:hover{
+  opacity:1;
+  text-decoration:underline;
+}
+
+/* linha com input e carrinho */
+.search-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
 }
 
 input[type=search]{background:#fff;border:1px solid var(--stroke);color:var(--text);padding:10px 12px;border-radius:12px;min-width:280px;outline:none;box-shadow:0 1px 0 rgba(0,0,0,.02)}
@@ -93,7 +103,7 @@ button.secondary{background:#E9ECFF;color:#3a3f58;border:1px solid #dfe4ff}
 
 /* ===== HERO, GRID, CARDS ===== */
 .hero{
-  margin:48px 0 24px; /* ALTERADO de 8px para 48px para descer a barra */
+  margin:48px 0 24px; /* desce a barra */
   display:grid;
   grid-template-columns:1fr;
 }
